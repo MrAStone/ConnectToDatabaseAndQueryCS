@@ -1,4 +1,5 @@
-﻿namespace ConnectToDatabaseAndQueryCS
+﻿using MySqlConnector;
+namespace ConnectToDatabaseAndQueryCS
 {
     internal class Program
     {
