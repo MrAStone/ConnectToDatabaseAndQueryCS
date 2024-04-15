@@ -16,6 +16,28 @@ namespace ConnectToDatabaseAndQueryCS
             int result = Convert.ToInt32(cmd.ExecuteScalar()); // result is known to be integer
             Console.WriteLine(result);
             con.Close(); // close connection
+            SQL = "SELECT * FROM SoftwareLicence";
+            cmd.CommandText = SQL;
+            con.Open();
+            MySqlDataReader results = cmd.ExecuteReader(); // results are going to be multiple
+            while(results.Read())
+            {
+                Console.WriteLine(results[0]); // first column
+            }
+            con.Close ();
+
+            con.Open ();
+            results = cmd.ExecuteReader(); // results are going to be multiple
+            while (results.Read())
+            {
+                for(int i = 0;i<results.FieldCount;i++)
+                {
+                    Console.Write(results[i] + " ");
+                }
+                Console.WriteLine();
+            }
+            con.Close();
+
 
         }
     }
